@@ -32,6 +32,7 @@ function FoodModal({ title, image, calories, ingredients }) {
     setOpen(false);
   };
 
+
   return (
     <div>
       <button id='modal-button' type="button" onClick={handleOpen}>
@@ -58,7 +59,7 @@ function FoodModal({ title, image, calories, ingredients }) {
                         <li>{ingredient.text}</li>
                     ))}
             </ol>
-            <p>Calories: {calories}</p>
+            <p>Calories: {Math.floor(calories)}</p>
           </div>
         </Fade>
       </Modal>

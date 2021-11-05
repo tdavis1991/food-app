@@ -6,18 +6,14 @@ import { API_KEY, APP_ID } from '../config';
 
 const Search_page = () => {
 
-  const reqUrl = `https://api.edamam.com/search?q=chicken&app_id=${APP_ID}&app_key=${API_KEY}`
+  const reqUrl = `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${API_KEY}`
 
   const [recipes, setRecipes] = useState([])
   const [search, setSearch] = useState('')
   const [query, setQuery] = useState('')
 
-  useEffect(() => {
-    getRecipes()
-  }, [query])
-
   const getRecipes = () => {
-    axios.get(`https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${API_KEY}`)
+    axios.get(reqUrl)
       .then(res => {
         console.log(res)
         setRecipes(res.data.hits)
@@ -25,6 +21,10 @@ const Search_page = () => {
         console.log(err)
       }) 
   }
+
+  useEffect(() => {
+    getRecipes()
+  }, [query])
 
   const updateSearch = e => {
     setSearch(e.target.value);

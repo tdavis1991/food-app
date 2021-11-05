@@ -1,8 +1,6 @@
 import './App.css';
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Route } from 'react-router-dom';
-import Recipes from './components/Recipes';
 import Search_page from './pages/Search_page';
 import Landing_page from './pages/Landing_page';
 
